@@ -1,12 +1,13 @@
-import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+  const state = {
+    isFlipped: false
   }
 
-  return { count, doubleCount, increment }
+  function flip(param) {
+    state.isFlipped = param
+  }
+
+  return { state, flip }
 })
