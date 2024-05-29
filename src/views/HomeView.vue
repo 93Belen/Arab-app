@@ -3,6 +3,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 import Buttons from '../components/Buttons.vue'
 import { useCounterStore } from '../stores/counter'
 import { onMounted, ref } from 'vue'
+
 const store = useCounterStore()
 const letter = ref([])
 
@@ -31,6 +32,7 @@ onMounted(() => {
     <div>
 
     </div>
+    <progress class="progress progress-success w-full" value="50" max="100" />
     <Buttons :letter='letter' :getLetter="getLetter" />
   </main>
 </template>

@@ -12,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </div>
   </header>
-  <div class="flex items-center justify-center content-center w-full">
+  <div class="flex items-center justify-center content-center w-full text-black">
     <RouterView />
   </div>
 </div>

@@ -36,6 +36,6 @@ const addToWrong = () =>{
 <template>
 <div v-if="isFlipped" class="flex justify-around py-5">
   <button @click="addToRight" class="rounded-full"><Icon icon="gravity-ui:circle-chevron-down-fill" width="50px" height="50px"  style="color: #77bb41" /></button>
-  <button @click="addToWrong" class="rounded-full"><Icon icon="gravity-ui:circle-xmark-fill" width="50px" height="50px"  style="color: #831100" /></button>
+  <button @click="addToWrong" class="rounded-full"><Icon icon="gravity-ui:circle-xmark-fill" width="50px" height="50px"  style="color: #ff6251" /></button>
 </div>
 </template>
