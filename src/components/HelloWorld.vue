@@ -30,7 +30,7 @@ watch(() => store.isFlipped, (newValue) => {
     </div>
     <div class="theback absolute w-full rounded-lg h-full bg-[#E3E3E3] content-center backdrop-blur-md">
       <p v-show="isFlipped" class="text-6xl">{{ letter.letter[1] }}</p>
-      <p class="text-lg italic font-light">{{letter.letter[2]}}</p>
+      <p v-show="isFlipped" class="text-lg italic font-light">{{letter.letter[2]}}</p>
     </div>
   </div>
 </div>
