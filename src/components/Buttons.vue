@@ -19,12 +19,12 @@ watch(() => store.wrong.length, () => {
 
 const addToRight = () =>{
   store.addRight()
-  store.flip()
+  store.flip(false)
 }
 
 const addToWrong = () =>{
   store.addWrong('letter')
-  store.flip()
+  store.flip(false)
 }
 
 </script>
