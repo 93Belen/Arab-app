@@ -25,6 +25,6 @@ onMounted(() => {
     <div>
 
     </div>
-    <Buttons @click="getLetter" />
+    <Buttons :letter='letter' @click="getLetter" />
   </main>
 </template>

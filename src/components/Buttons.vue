@@ -3,8 +3,10 @@ import { useCounterStore } from '../stores/counter'
 import { ref, watch } from 'vue'
 import { Icon } from '@iconify/vue';
 
+
 const store = useCounterStore()
 const isFlipped = ref(store.isFlipped)
+const letter = defineProps(['letter'])
 
 watch(() => store.isFlipped, (newValue) => {
   isFlipped.value = newValue
@@ -23,7 +25,7 @@ const addToRight = () =>{
 }
 
 const addToWrong = () =>{
-  store.addWrong('letter')
+  store.addWrong(letter.letter)
   store.flip(false)
 }
 
