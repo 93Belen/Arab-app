@@ -29,7 +29,7 @@ watch(() => store.isFlipped, (newValue) => {
       <p class="text-6xl">{{ letter.letter[0] }}</p>
     </div>
     <div class="theback absolute w-full h-full bg-[lightblue] content-center">
-      <p class="text-6xl">{{ letter.letter[1] }}</p>
+      <p v-show="isFlipped" class="text-6xl">{{ letter.letter[1] }}</p>
     </div>
   </div>
 </div>
