@@ -8,11 +8,11 @@ const letter = ref([])
 
 
 const getLetter = () => {
-if(store.right.length > 25 && store.wrong.length < 5){
+if(store.right.length > 25){
   store.changeChoosenLetterFromComplete()
   letter.value = store.completeAlphabet[store.choosenLetter]
 }
-else {
+else{
   store.changeChoosenLetter()
   letter.value = store.alphabet[store.choosenLetter]
 }
