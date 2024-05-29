@@ -2,6 +2,7 @@
 import { ref, watch } from 'vue'
 import { useCounterStore } from '../stores/counter'
 const store = useCounterStore()
+const letter = defineProps(['letter'])
 
 const isFlipped = ref(false)
 const flipCard = () => {
@@ -13,6 +14,7 @@ watch(() => store.isFlipped, (newValue) => {
 })
 
 
+
 </script>
 
 <template>
@@ -22,10 +24,10 @@ watch(() => store.isFlipped, (newValue) => {
  :class="{ 'flipped': isFlipped}"
 >
     <div class="thefront absolute w-full h-full bg-[yellow] content-center">
-      <p class="text-6xl">Front</p>
+      <p class="text-6xl">{{ letter.letter[0] }}</p>
     </div>
     <div class="theback absolute w-full h-full bg-[lightblue] content-center">
-      <p class="text-6xl">Back</p>
+      <p class="text-6xl">{{ letter.letter[1] }}</p>
     </div>
   </div>
 </div>
