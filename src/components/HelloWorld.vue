@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useCounterStore } from '../stores/counter'
 const store = useCounterStore()
 
@@ -8,7 +8,9 @@ const flipCard = () => {
   isFlipped.value = !isFlipped.value
   store.flip(isFlipped.value)
 }
-
+watch(() => store.isFlipped, (newValue) => {
+  isFlipped.value = newValue
+})
 
 
 </script>
