@@ -6,7 +6,7 @@ const store = useCounterStore()
 const isFlipped = ref(false)
 const flipCard = () => {
   isFlipped.value = !isFlipped.value
-  store.flip(isFlipped)
+  store.flip(isFlipped.value)
 }
 
 

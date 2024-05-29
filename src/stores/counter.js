@@ -1,13 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const useCounterStore = defineStore('counter', () => {
-  const state = {
-    isFlipped: false
-  }
-
-  function flip(param) {
-    state.isFlipped = param
-  }
-
-  return { state, flip }
+export const useCounterStore = defineStore('counter', {
+  state: () => ({ isFlipped: false }),
+  actions: {
+    flip(param) {
+      this.isFlipped = param
+    },
+  },
 })
