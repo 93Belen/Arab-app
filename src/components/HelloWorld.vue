@@ -21,14 +21,14 @@ watch(() => store.isFlipped, (newValue) => {
 
 <template>
 <div class="maincontainer relative w-[250px] h-[150px] rounded-lg">
-<div class="thecard border-2 text-center rounded-lg border-black absolute w-full h-full"
+<div class="thecard text-center absolute w-full h-full"
 @click="flipCard"
  :class="{ 'flipped': isFlipped}"
 >
-    <div class="thefront absolute w-full h-full bg-[yellow] content-center">
+    <div class="thefront absolute w-full rounded-lg h-full bg-[#C1C1C1] content-center backdrop-blur-md">
       <p class="text-6xl">{{ letter.letter[0] }}</p>
     </div>
-    <div class="theback absolute w-full h-full bg-[lightblue] content-center">
+    <div class="theback absolute w-full rounded-lg h-full bg-[#E3E3E3] content-center backdrop-blur-md">
       <p v-show="isFlipped" class="text-6xl">{{ letter.letter[1] }}</p>
     </div>
   </div>
