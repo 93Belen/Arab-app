@@ -17,9 +17,9 @@ const howManyTimes = (item) => {
 
 
 <template>
-  <div class="about w-full text-center">
+  <div class="about w-[80%] text-center">
     <h1>Erros:</h1>
-    <ul class="flex flex-col">
+    <ul class="flex flex-col gap-y-[1px]">
       <li class="flex w-full justify-around"
       :class="{
       'bg-[#E3E3E3]': index % 2 === 0,

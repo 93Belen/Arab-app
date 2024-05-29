@@ -20,7 +20,7 @@ watch(() => store.wrong.length, () => {
 })
 
 const addToRight = () =>{
-  store.addRight()
+  store.addRight(props.letter)
   store.flip(false)
   props.getLetter()
 }

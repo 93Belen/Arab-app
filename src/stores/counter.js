@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useCounterStore = defineStore('counter', {
   state: () => ({ 
     isFlipped: false,
-    right: 0,
+    right: [],
     wrong: [],
     alphabet: [
     ["ا", "Alif"],
@@ -41,8 +41,12 @@ export const useCounterStore = defineStore('counter', {
     flip(param) {
       this.isFlipped = param
     },
-    addRight(){
-      this.right++
+    addRight(param){
+      this.right.push(param)
+      let indexToRemove = this.wrong.indexOf(param)
+      if(indexToRemove !== -1){
+        this.wrong.splice(indexToRemove, 1)
+      }
     },
     addWrong(param){
       this.wrong.push(param)
