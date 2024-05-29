@@ -171,5 +171,15 @@ export const useCounterStore = defineStore('counter', {
       const randomIndex = Math.floor(Math.random() * this.completeAlphabet.length);
       this.choosenLetter = randomIndex
     }
-  }
+  },
+  getters: {
+    percentage(state) {
+      const total = state.right.length + state.wrong.length;
+      const rightPercentage = (state.right.length / total) * 100;
+      // if(total === 0){
+      //   return 100
+      // }
+      return rightPercentage;
+    }
+  },
 })

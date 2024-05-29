@@ -2,10 +2,16 @@
 import HelloWorld from '../components/HelloWorld.vue'
 import Buttons from '../components/Buttons.vue'
 import { useCounterStore } from '../stores/counter'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const store = useCounterStore()
 const letter = ref([])
+const percentage = ref(store.percentage)
+
+watch(() => store.percentage, (newValue) => {
+  percentage.value = newValue
+})
+
 
 
 const getLetter = () => {
@@ -18,6 +24,7 @@ else{
   letter.value = store.alphabet[store.choosenLetter]
 }
 console.log(letter.value)
+console.log(percentage.value)
 }
 onMounted(() => {
   getLetter()
@@ -32,7 +39,14 @@ onMounted(() => {
     <div>
 
     </div>
-    <progress class="progress progress-success w-full" value="50" max="100" />
+    <progress class="progress w-full" 
+    :class="{ 
+      'progress-error': percentage <= 30,
+      'progress-warning': percentage < 50 && percentage > 30,
+      'progress-success': percentage >= 50,
+      'progress-info': typeof percentage !== number,
+       }" 
+    :value="percentage" max="100" />
     <Buttons :letter='letter' :getLetter="getLetter" />
   </main>
 </template>
