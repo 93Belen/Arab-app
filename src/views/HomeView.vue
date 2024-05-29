@@ -4,12 +4,13 @@ import Buttons from '../components/Buttons.vue'
 import { useCounterStore } from '../stores/counter'
 import { onMounted, ref } from 'vue'
 const store = useCounterStore()
-const letter = ref('')
+const letter = ref([])
 
 
 const getLetter = () => {
-const newLetter = store.getRandomLetter
-letter.value = newLetter
+store.changeChoosenLetter()
+letter.value = store.alphabet[store.choosenLetter]
+console.log(letter.value)
 }
 onMounted(() => {
   getLetter()
@@ -24,6 +25,6 @@ onMounted(() => {
     <div>
 
     </div>
-    <Buttons />
+    <Buttons @click="getLetter" />
   </main>
 </template>

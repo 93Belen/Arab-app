@@ -34,7 +34,8 @@ export const useCounterStore = defineStore('counter', {
     ["ه", "Ha"],
     ["و", "Waw"],
     ["ي", "Ya"],
-    ]
+    ],
+    choosenLetter: 0
    }),
   actions: {
     flip(param) {
@@ -45,12 +46,10 @@ export const useCounterStore = defineStore('counter', {
     },
     addWrong(param){
       this.wrong.push(param)
-    }
-  },
-  getters: {
-    getRandomLetter(state) {
-      const randomIndex = Math.floor(Math.random() * state.alphabet.length);
-      return state.alphabet[randomIndex]
+    },
+    changeChoosenLetter(){
+      const randomIndex = Math.floor(Math.random() * this.alphabet.length);
+      this.choosenLetter = randomIndex
     }
   }
 })
