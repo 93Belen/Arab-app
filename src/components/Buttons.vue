@@ -6,7 +6,7 @@ import { Icon } from '@iconify/vue';
 
 const store = useCounterStore()
 const isFlipped = ref(store.isFlipped)
-const letter = defineProps(['letter'])
+const props = defineProps(['letter', 'getLetter'])
 
 watch(() => store.isFlipped, (newValue) => {
   isFlipped.value = newValue
@@ -22,11 +22,13 @@ watch(() => store.wrong.length, () => {
 const addToRight = () =>{
   store.addRight()
   store.flip(false)
+  props.getLetter()
 }
 
 const addToWrong = () =>{
-  store.addWrong(letter.letter)
+  store.addWrong(props.letter)
   store.flip(false)
+  props.getLetter()
 }
 
 </script>
