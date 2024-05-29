@@ -176,9 +176,9 @@ export const useCounterStore = defineStore('counter', {
     percentage(state) {
       const total = state.right.length + state.wrong.length;
       const rightPercentage = (state.right.length / total) * 100;
-      // if(total === 0){
-      //   return 100
-      // }
+      if(state.right.length === 0 && state.wrong.length > 0){
+        return 10
+      }
       return rightPercentage;
     }
   },
