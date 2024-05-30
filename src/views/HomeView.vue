@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <main>
-    <HelloWorld :letter='letter' />
+    <HelloWorld :letter='letter' :getLetter="getLetter" />
     <div>
 
     </div>
