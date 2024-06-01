@@ -7,7 +7,9 @@ import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
 import 'v-onboarding/dist/style.css'
 
 const steps = [
-  { attachTo: { element: '#card' }, content: { title: "Guess what letter this is, and when you are ready, click it to see the answer!" } }
+  { attachTo: { element: '#card' }, content: { title: "Guess what letter this is, and when you are ready, click it to see the answer!" } },
+  { attachTo: { element: '#percentage' }, content: { title: "This bar will tell you what percentage you got right!" } },
+
 ]
 
 onMounted(() => {
@@ -55,7 +57,7 @@ onMounted(() => {
     <div>
 
     </div>
-    <progress class="progress w-full" 
+    <progress id="percentage" class="progress w-full" 
     :class="{ 
       'progress-error': percentage <= 30,
       'progress-warning': percentage < 50 && percentage > 30,
