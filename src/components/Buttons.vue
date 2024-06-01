@@ -6,8 +6,8 @@ import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
 import 'v-onboarding/dist/style.css'
 
 const steps = [
-  { attachTo: { element: '#button-v' }, content: { title: "Click this here if you got it right!" } },
-  { attachTo: { element: '#button-x' }, content: { title: "And here if you didn't" } },
+  { attachTo: { element: '#button-v' }, content: { description: "Click here if you've answered correctly!" } },
+  { attachTo: { element: '#button-x' }, content: { description: "And here if you didn't" } },
 ]
 
 const wrapper = ref(null)

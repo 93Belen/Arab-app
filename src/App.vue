@@ -7,7 +7,7 @@ import 'v-onboarding/dist/style.css'
 const store = useCounterStore();
 
 const steps = [
-  { attachTo: { element: '#statistic' }, content: { title: "See your errors here!" } },
+  { attachTo: { element: '#statistic' }, content: { description: "View your errors here!" } },
 ]
 
 const wrapper = ref(null)
@@ -37,3 +37,25 @@ watch(() => store.wrong.length, (length) => {
   </div>
 </div>
 </template>
+
+<style>
+/* .v-onboarding-item{
+
+} */
+
+.v-onboarding-item__header {
+ display: none;
+}
+.v-onboarding-item__description {
+color: black;
+font-size: 16px;
+
+}
+.v-onboarding-item__actions button {
+font-size: 14px;
+max-width: 150px;
+margin: auto;
+}
+
+
+</style>

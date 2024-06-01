@@ -7,8 +7,8 @@ import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
 import 'v-onboarding/dist/style.css'
 
 const steps = [
-  { attachTo: { element: '#card' }, content: { title: "Guess what letter this is, and when you are ready, click it to see the answer!" } },
-  { attachTo: { element: '#percentage' }, content: { title: "This bar will tell you what percentage you got right!" } },
+  { attachTo: { element: '#card' }, content: { description: "Guess the letter displayed here! When you're ready, click the card to reveal the answer." } },
+  { attachTo: { element: '#percentage' }, content: { description: "This bar will tell you what percentage you got right!" } },
 
 ]
 
