@@ -13,7 +13,7 @@ const flipCard = () => {
 }
 watch(() => store.isFlipped, (newValue) => {
   isFlipped.value = newValue
-  if(store.isFlipped && countdownValue.value < 10){
+  if(newValue){
     clearInterval(intervalId); // Clear interval when conditions are no longer met
     intervalId = undefined; // Reset intervalId
     countdownValue.value = 10
@@ -26,8 +26,8 @@ function countdown() {
         if (remainingSeconds === 0) {
             remainingSeconds = 10 
             store.addWrong(props.letter)
-            props.getLetter()
             clearInterval(intervalId); // Clear interval when countdown finishes
+            props.getLetter()
             return;
         } else {
             remainingSeconds--;
