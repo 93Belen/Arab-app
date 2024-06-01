@@ -54,9 +54,6 @@ onMounted(() => {
 <VOnboardingWrapper ref="wrapper" :steps="steps" />
   <main>
     <HelloWorld id="card" :letter='letter' :getLetter="getLetter" />
-    <div>
-
-    </div>
     <progress id="percentage" class="progress w-full" 
     :class="{ 
       'progress-error': percentage <= 30,
