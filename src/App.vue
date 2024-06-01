@@ -1,14 +1,34 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { useCounterStore } from './stores/counter'
+import { onMounted, ref, watch, defineComponent } from 'vue'
+import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
+import 'v-onboarding/dist/style.css'
+const store = useCounterStore();
+
+const steps = [
+  { attachTo: { element: '#statistic' }, content: { title: "See your errors here!" } },
+]
+
+const wrapper = ref(null)
+const { start, goToStep, finish } = useVOnboarding(wrapper)
+
+watch(() => store.wrong.length, (length) => {
+    if(length === 1){
+      start()
+    }
+})
+
 </script>
 
 <template>
+<VOnboardingWrapper ref="wrapper" :steps="steps" />
 <div class="flex justify-center flex-col gap-10 pt-5 px-5">
   <header>
     <div class="">
       <nav class="flex w-full justify-around">
         <RouterLink to="/">Home</RouterLink>
-       <RouterLink to="/about">Statistics</RouterLink>
+       <RouterLink id="statistic" to="/about">Statistics</RouterLink>
       </nav>
     </div>
   </header>

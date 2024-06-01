@@ -147,7 +147,8 @@ export const useCounterStore = defineStore('counter', {
     ["ـيـ", "Ya middle", "light"],
     ["ـي", "Ya final", "light"]
     ],
-    choosenLetter: 0
+    choosenLetter: 0,
+    firstTimer: true
    }),
   actions: {
     flip(param) {
@@ -170,6 +171,9 @@ export const useCounterStore = defineStore('counter', {
     changeChoosenLetterFromComplete(){
       const randomIndex = Math.floor(Math.random() * (this.completeAlphabet.length - 1));
       this.choosenLetter = randomIndex
+    },
+    changeFirstTimer(){
+      this.firstTimer = false;
     }
   },
   getters: {

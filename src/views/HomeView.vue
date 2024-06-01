@@ -2,7 +2,22 @@
 import HelloWorld from '../components/HelloWorld.vue'
 import Buttons from '../components/Buttons.vue'
 import { useCounterStore } from '../stores/counter'
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch, defineComponent } from 'vue'
+import { VOnboardingWrapper, useVOnboarding } from 'v-onboarding'
+import 'v-onboarding/dist/style.css'
+
+const steps = [
+  { attachTo: { element: '#card' }, content: { title: "Guess what letter this is, and when you are ready, click it to see the answer!" } }
+]
+
+onMounted(() => {
+  if(store.firstTimer){
+    start()
+  }
+  })
+
+const wrapper = ref(null)
+const { start, goToStep, finish } = useVOnboarding(wrapper)
 
 const store = useCounterStore()
 const letter = ref([])
@@ -34,8 +49,9 @@ onMounted(() => {
 </script>
 
 <template>
+<VOnboardingWrapper ref="wrapper" :steps="steps" />
   <main>
-    <HelloWorld :letter='letter' :getLetter="getLetter" />
+    <HelloWorld id="card" :letter='letter' :getLetter="getLetter" />
     <div>
 
     </div>
@@ -47,6 +63,6 @@ onMounted(() => {
       'progress-info': typeof percentage !== number,
        }" 
     :value="percentage" max="100" />
-    <Buttons :letter='letter' :getLetter="getLetter" />
+    <Buttons id="buttons" :letter='letter' :getLetter="getLetter" />
   </main>
 </template>
