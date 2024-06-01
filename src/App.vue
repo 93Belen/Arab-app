@@ -39,9 +39,10 @@ watch(() => store.wrong.length, (length) => {
 </template>
 
 <style>
-/* .v-onboarding-item{
-
-} */
+.v-onboarding-item{
+ max-width: 80vw;
+ margin: auto;
+}
 
 .v-onboarding-item__header {
  display: none;
