@@ -4,6 +4,7 @@ import { useCounterStore } from '../stores/counter'
 const store = useCounterStore()
 const props = defineProps(['letter', 'getLetter'])
 let countdownValue = ref(10)
+let intervalId; // Define intervalId variable
 
 const isFlipped = ref(false)
 const flipCard = () => {
@@ -12,8 +13,12 @@ const flipCard = () => {
 }
 watch(() => store.isFlipped, (newValue) => {
   isFlipped.value = newValue
+  if(store.isFlipped && countdownValue.value < 10){
+    clearInterval(intervalId); // Clear interval when conditions are no longer met
+    intervalId = undefined; // Reset intervalId
+    countdownValue.value = 10
+  }
 })
-let intervalId; // Define intervalId variable
 
 function countdown() {
     let remainingSeconds = 10;
@@ -33,14 +38,14 @@ function countdown() {
 }
 
 watch(() => {
-    return [store.right.length > 50, store.percentage > 40];
+    return [store.right.length > 1, store.percentage > 40];
 }, ([condition1, condition2]) => {
     if (condition1 && condition2) {
         countdown();
     } else {
         clearInterval(intervalId); // Clear interval when conditions are no longer met
         intervalId = undefined; // Reset intervalId
-        countdownValue.value = 11
+        countdownValue.value = 10
     }
 });
 
@@ -61,7 +66,7 @@ watch(() => {
     <div
      :class="{ 
       'shadow-[0px_0px_5px_5px_rgba(204,48,46,0.5)]' : (countdownValue <= 1),
-      'shadow-transparent' : countdownValue > 1,
+      'shadow-transparent' : countdownValue > 0,
  }"
      class="thefront absolute w-full rounded-lg h-full bg-[#C1C1C1]  backdrop-blur-md grid grid-rows-[20%_80%]">
       <span v-show="(countdownValue > 0 && countdownValue < 6 && store.percentage > 40)" class="countdown justify-right flex justify-end items-center pr-5">
