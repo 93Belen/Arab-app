@@ -164,11 +164,11 @@ export const useCounterStore = defineStore('counter', {
       this.wrong.push(param)
     },
     changeChoosenLetter(){
-      const randomIndex = Math.floor(Math.random() * this.alphabet.length);
+      const randomIndex = Math.floor(Math.random() * (this.alphabet.length - 1));
       this.choosenLetter = randomIndex
     },
     changeChoosenLetterFromComplete(){
-      const randomIndex = Math.floor(Math.random() * this.completeAlphabet.length);
+      const randomIndex = Math.floor(Math.random() * (this.completeAlphabet.length - 1));
       this.choosenLetter = randomIndex
     }
   },
